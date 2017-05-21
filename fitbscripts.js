@@ -20,7 +20,7 @@
 					action: 'add_favourite',
 					JSToken: jQuery("#JSToken").val(),
 					GuestID: jQuery("#GuestID").val(),
-					itemID: itemID,
+					itemID: itemID
 				}
 			})
 				.fail(function(r, status, jqXHR) {

@@ -19,86 +19,24 @@
   <button type="button" id="btn-load-event">Load</button>
 </div>
 <br>
-<div id='calendar'></div>
+<div id='fitb_itinerary_calendar'></div>
+<input type="hidden" id="JSToken" value="js1410750286js535072783">
+<input type="hidden" id="GuestID" value="temp1953361512">
 <script src='lib/calender-lib.js'></script>
 <script type="text/javascript">
   $(document).ready(function(){
-    var calendarObj = {
-      availabilityData: [
-        {
-          title: 'All Day Event',
-          start: moment().format('YYYY-MM-DD')
-        }
-      ],
-      listeners: {
-        select: function (star, end, jsEvent, view) {
-          calenderAddEvent(star, end, jsEvent, view);
 
-        },
-        eventDrop: function(event, delta, revertFunc) {
-          var tmpEvent = _.find(availabilityData, function(a){
-            return a.id=== event.id;
-          });
-          tmpEvent.date = moment(event.start).format('YYYY-MM-DD');
-          tmpEvent.start_time = moment(event.start).format('HH:mm:ss');
-          tmpEvent.end_time = moment(event.end).format('HH:mm:ss');
-          tmpEvent.start = moment(event.start).format('YYYY-MM-DD') + 'T' + moment(event.start).format('HH:mm:ss');
-          tmpEvent.end =  moment(event.end).format('YYYY-MM-DD') + 'T' + moment(event.end).format('HH:mm:ss');
-
-        },
-        eventResize: function(event, delta, revertFunc) {
-          var tmpEvent = _.find(availabilityData, function(a){
-            return a.id=== event.id;
-          });
-          tmpEvent.date = moment(event.start).format('YYYY-MM-DD');
-          tmpEvent.start_time = moment(event.start).format('HH:mm:ss');
-          tmpEvent.end_time = moment(event.end).format('HH:mm:ss');
-          tmpEvent.start = moment(event.start).format('YYYY-MM-DD') + 'T' + moment(event.start).format('HH:mm:ss');
-          tmpEvent.end =  moment(event.end).format('YYYY-MM-DD') + 'T' + moment(event.end).format('HH:mm:ss');
-
-        },
-        eventRender: function(event, element, view){
-          if (view.name == 'listDay') {
-            element.find(".fc-list-item-time").prepend("<span class='closeon'>X</span><br>");
-          } else {
-            element.find(".fc-content").prepend("<span class='closeon'>X</span><br>");
-          }
-          element.find(".closeon").on('click', function() {
-            //$('#calendar').fullCalendar('removeEvents',event._id);
-            availabilityData = _.filter(availabilityData, function(a){
-              return a.id !== event.id;
-            });
-            calenderUpdateEvent();
-          });
-        },
-        eventClick: function (calEvent, jsEvent, view) {
-          calenderEditEvent(calEvent, jsEvent, view);
-        }
-      }
-    };
-
-    calenderInit($('#calendar'), calendarObj);
 
 
     $('#btn-load-event').on('click', function(){
     var dateFrom = '2017-05-12';
-      var dateTo = '2017-05-20';
+      var dateTo = '2017-05-14';
       calenderUpdateEventNineDays(dateFrom, dateTo);
     });
   });
 
 </script>
-<div style="display: none" id="add-event-dialog">
-  <h1>Event</h1>
-  <div><label>Start time</label> <input id="start-time"  readonly style="width: 55px;"></div>
-  <br>
-  <div><label>End time</label> <input id="end-time"   readonly  style="width: 55px;"></div>
-  <br>
-  <div><label>Event Name</label> <input id="event-name"  ></div>
-  <br>
-  <button type="button" id="btnAddEvent">Save</button>
-  <button type="button" id="btnCancelAddEvent">Cancel</button>
-</div>
+
 
 </body>
 </html>
