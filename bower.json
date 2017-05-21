@@ -1,0 +1,23 @@
+{
+  "name": "fullcalender-example-01",
+  "homepage": "https://github.com/delwar2016/fullcalender-example-01",
+  "authors": [
+    "Md. Delwar Hossain <twinkle_023020@yahoo.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "moment": "^2.18.1",
+    "fullcalendar": "^3.4.0",
+    "underscore": "^1.8.3"
+  }
+}
